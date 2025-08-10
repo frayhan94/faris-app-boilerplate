@@ -73,6 +73,59 @@ app-boilerplate/
 
 ## Testing & Development
 
+### Android Emulator Setup
+
+**Prerequisites**: Install [Android Studio](https://developer.android.com/studio)
+
+#### Method 1: Using Android Studio GUI
+1. Open Android Studio
+2. Click **More Actions** → **AVD Manager** (or **Tools** → **AVD Manager** if project is open)
+3. Click **Create Virtual Device**
+4. Select a device (e.g., Pixel 4) → **Next**
+5. Select a system image (e.g., Android 13) → **Next**
+6. Name your emulator → **Finish**
+7. Click the **Play** button to start the emulator
+
+#### Method 2: Using Command Line
+```bash
+# List available emulators
+emulator -list-avds
+
+# Start a specific emulator
+emulator -avd <emulator_name>
+
+# Or start emulator in background
+emulator -avd <emulator_name> &
+```
+
+#### Method 3: Using Expo (Physical Device)
+```bash
+# Start Expo server
+npm start
+
+# Install Expo Go app on your Android device
+# Scan the QR code displayed in terminal
+```
+
+#### Troubleshooting Android Emulator
+If you get "No Android connected device found":
+
+1. **Check if emulator is running**:
+   ```bash
+   adb devices
+   ```
+
+2. **Start emulator first**, then run:
+   ```bash
+   npm run android
+   ```
+
+3. **For physical device**:
+   - Enable Developer Options (tap Build Number 7 times in Settings)
+   - Enable USB Debugging in Developer Options
+   - Connect device via USB
+   - Run `adb devices` to verify connection
+
 ### Running Multiple Simulators
 Run both iOS and Android simultaneously:
 ```bash
